@@ -9,14 +9,14 @@
 #include <unordered_map>
 using namespace std;
 
-class Order {
+class OrderInfo {
 public:
 	int OrderId;
 	int Quantity;
 	double Price;
 	char Side;
-	Order(int orderId, char side, int quantity, double price);
-	Order(const Order &) = default;
+	OrderInfo(int orderId, char side, int quantity, double price);
+	OrderInfo(const OrderInfo &) = default;
 };
 
 class OrderBookInfo {
@@ -31,7 +31,7 @@ public:
 	OrderBook is a level 3 orderbook.  Please fill out the stub below.
 */
 class OrderBook {
-	unordered_map<int, shared_ptr<Order>> orders;
+	unordered_map<int, shared_ptr<OrderInfo>> orders;
 	map<double, shared_ptr<OrderBookInfo>, greater<double>> buyOrderBook;
 	map<double, shared_ptr<OrderBookInfo>> sellOrderBook;
 
@@ -41,7 +41,7 @@ public:
 		if (orders.find(orderId) != orders.end() || size <= 0 || (side != 'b' && side != 's')) {
 			throw std::invalid_argument("Invalid operation");
 		}
-		orders[orderId] = make_shared<Order>(orderId, side, size, price);
+		orders[orderId] = make_shared<OrderInfo>(orderId, side, size, price);
 
 		if (side == 'b') {
 			auto orderBook = buyOrderBook.find(price);
@@ -208,7 +208,7 @@ public:
 	}
 };
 
-Order::Order(int orderId, char side, int quantity, double price) {
+OrderInfo::OrderInfo(int orderId, char side, int quantity, double price) {
 	OrderId = orderId;
 	Side = side;
 	Quantity = quantity;

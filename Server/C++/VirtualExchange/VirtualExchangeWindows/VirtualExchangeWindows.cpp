@@ -11,7 +11,7 @@
 FORWARD(QATS, VirtualExchange, OrderManagement)
 FORWARD(QATS, Model, Order)
 
-int main1()
+int main()
 {
 	QATS::VirtualExchange::OrderManagement orderManagement;
     std::cout << "Hello World!\n"; 

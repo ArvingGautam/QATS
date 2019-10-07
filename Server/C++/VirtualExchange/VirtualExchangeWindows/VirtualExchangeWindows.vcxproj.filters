@@ -38,9 +38,6 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OrderBook.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MarketUpdateSequencer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
